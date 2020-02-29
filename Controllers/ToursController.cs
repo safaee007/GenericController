@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GenericController.Controllers
 {
-    public class ProductsController : GenericController<Models.Product>
+    public class ToursController : GenericController<Models.Tour>
     {
-        public ProductsController(Services.IProductService service): base (service)
+        public ToursController(Services.ITourService service, IHttpContextAccessor context) : base(service, context)
         {
 
         }

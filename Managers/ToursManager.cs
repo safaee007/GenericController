@@ -4,21 +4,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 
 namespace GenericController.Managers
 {
-    public class ProductsManager : Services.IProductService
+    public class ToursManager : Services.ITourService
     {
-        public async Task<List<Product>> GetList(Filter model)
+        public async Task<List<Tour>> GetList(Filter model)
         {
-            return new List<Product>
+            return new List<Tour>
             {
-                new Product{
+                new Tour{
                     ID = 1,
                     Title = "Product 1",
                     Price = 10
                 },
-                new Product{
+                new Tour{
                     ID = 2,
                     Title = "Product 2",
                     Price = 20
@@ -26,7 +27,7 @@ namespace GenericController.Managers
             };
         }
 
-        public bool AddItem(Product model)
+        public bool AddItem(Tour model)
         {
             throw new NotImplementedException();
         }
@@ -36,12 +37,12 @@ namespace GenericController.Managers
             throw new NotImplementedException();
         }
 
-        public Task<Product> EditItem(int ID)
+        public Task<Tour> EditItem(int ID)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Product> GetItem(int ID)
+        public Task<Tour> GetItem(int ID)
         {
             throw new NotImplementedException();
         }

@@ -19,17 +19,17 @@ namespace GenericController.Managers
             {
                 new User{
                     ID = 1,
-                    Name = "SaeedSafaee",
+                    Firstname = "SaeedSafaee",
                     Email = "test@gmail.com"
                 },
                 new User{
                     ID = 2,
-                    Name = "ali",
+                    Firstname = "al",
                     Email = "ali@gmail.com"
                 },
                 new User{
                     ID = 3,
-                    Name = "test",
+                    Firstname = "test",
                     Email = "test@gmail.com"
                 },
 
@@ -46,7 +46,7 @@ namespace GenericController.Managers
             return new User
             {
                 ID = 1,
-                Name = "SaeedSafaee",
+                Firstname = "SaeedSafaee",
                 Email = "test@gmail.com"
             };
         }

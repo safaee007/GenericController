@@ -9,7 +9,7 @@ namespace GenericController.Controllers
 {
     public class UsersController : GenericController<Models.User>
     {
-        public UsersController(Services.IUserService service): base (service)
+        public UsersController(Services.IUserService service, IHttpContextAccessor context): base (service, context)
         {
 
         }

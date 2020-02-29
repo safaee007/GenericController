@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -26,8 +27,9 @@ namespace GenericController
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<Services.IUserService, Managers.UsersManager>();
-            services.AddSingleton<Services.IProductService, Managers.ProductsManager>();
+            services.AddSingleton<Services.ITourService, Managers.ToursManager>();
 
             services.AddCors(options =>
             {
@@ -49,18 +51,20 @@ namespace GenericController
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseCors("NewCorsPolicy");
 
+            app.UseExceptionHandler("/Error/Index/500");
+            app.UseStatusCodePagesWithReExecute("/Error/index/{0}");
+
+
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute("default", "{controller=Users}/{action=List}/{id?}");
             });
         }
     }

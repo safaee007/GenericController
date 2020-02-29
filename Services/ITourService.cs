@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GenericController.Services
 {
-    public interface IProductService : Services.IGenericService<Models.Product>
+    public interface ITourService : Services.IGenericService<Models.Tour>
     {
     }
 }
